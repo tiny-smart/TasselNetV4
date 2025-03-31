@@ -1,0 +1,52 @@
+Callback:
+  output_dir: "/data1/xiaonahu/output/output_32_64_128_12_loose_test/"
+Dataset:
+  batch_size: 32
+  data_path: /home/lixuebing/learning/dataset_no_img/
+  drop_last: true
+  factor: 1
+  local:
+    local: true
+    blocksize: [32, 64, 128]
+    output_stride: [16, 16, 16]
+  num_workers: 10
+  pin_memory: true
+  shuffle: true
+  validation:
+  - val
+  - test
+Loss:
+  loss: L1
+  use_mask: false
+Model:
+  blocksize_list: [32, 64, 128]
+  output_stride_list: [16, 16, 16]
+  decodemode: GlobalAttention
+  gamma: true
+  mode: GlobalAttention
+  mullayer: false
+  name: local_count_mutihead_loose
+  norm_pix_loss: true
+  similarityfunc: PatchConv
+  similaritymode: OutputAdd
+  xenhance: false
+  depth: 12
+Optimizer:
+  accum_iter: 1
+  blr: 0.0002
+  epochs: 400
+  lr: 0.0001
+  min_lr: 0
+  start_epoch: 0
+  warmup_epochs: 10
+  weight_decay: 0.05
+Resume:
+  checkpoint: False
+  resume_path: '/data/pacvit/mae_pretrain_vit_base_full.pth'
+Training:
+  device: 'cuda'
+  seed: 728
+  use_enhance_density: False
+logger:
+  log: true
+  log_path: "/data1/xiaonahu/output/output_32_64_128_12_loose_test/"
