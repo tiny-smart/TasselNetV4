@@ -2,14 +2,11 @@
 
 
 Official implementation of [TasselNetV4: Towards plant-agnostic counting with a plain vision transformer and box-aware local counters]
-<!-- <p align="center">
-  <img src="plant_counting.png" width="825"/>
-</p> --> 
 
 ## Highlights
-- **Plant agnostic counting:** 
-- **PAC-105:** 
-- **PAC-Somalia:**
+- **Plant agnostic counting:** a new plant-orientated task customizing Class-agnostic counting into the plant domain and highlighting zero-shot generalization across taxomomic plant species;
+- **PAC-105 and PAC-Somalia:** two challenging PAC datasets for training and evaluating daily and out-of-distribution plant species;
+- **TasselNetV4:** an extended version of the TasselNet plant counting models.
 ### Comparison with the state-of-the-art CAC approaches on the PAC-105 dataset with $3$-shots. Best performance is in boldface.
 
 | Method                     | Venue & Year     | MAE↓  | RMSE↓  | WCA↑ | $R^2$ ↑  | FPST  |
@@ -54,13 +51,17 @@ Official implementation of [TasselNetV4: Towards plant-agnostic counting with a 
 ![visualization](/assets/visualization.png "Visualization of baselines and our method")
 
 ## Installation
-See details in `environment.yaml`.
+See details in 
+`environment.yaml`.
+
+Or simply run the following code:
+
 `conda env create -f environment.yaml`
 
 
 ## Prepare Dataset
 **PAC-105**
-Download PAC-105 dataset from: [Google Drive (2.5 GB)](https://drive.google.com/open?id=1XHcTqRWf-xD-WuBeJ0C9KfIN8ye6cnSs).The dataset structure should look like this:
+Download PAC-105 dataset from: [Baiduyun (2.80G)](https://pan.baidu.com/s/1Zl3LYwGZOjUaF9K_DjgH2A?pwd=7sgv) | [Google Drive (2.80G)](https://drive.google.com/file/d/1Y5ca8Eb3hOhimFfduiYN_rcJeL1CAVGU/view?usp=drive_link).The dataset structure should look like this:
 ````
 /PAC_105
 ├──── almond
@@ -76,10 +77,10 @@ Download PAC-105 dataset from: [Google Drive (2.5 GB)](https://drive.google.com/
 └──── dataset.csv
 ````
 
-**Supplymentary dataset**
-Download PAC-105 supplymentary subset from: [Google Drive (2.5 GB)](https://drive.google.com/open?id=1XHcTqRWf-xD-WuBeJ0C9KfIN8ye6cnSs).The dataset structure should look like this:
+**PAC-Somalia**
+Download PAC-Somalia dataset from: [Baiduyun (208M)](https://pan.baidu.com/s/1UH0rihsMe06_5J8AtALTeg?pwd=jssy) | [Google Drive (208M)](https://drive.google.com/file/d/1-haH0eZdpcOK9IMGkw0UafWq_YioHIyn/view?usp=drive_link).The dataset structure should look like this:
 ````
-/PAC_105
+/PAC_Somalia
 ├──── aska
     ├──── aska_fruit
         ├──── images
@@ -94,16 +95,20 @@ Download PAC-105 supplymentary subset from: [Google Drive (2.5 GB)](https://driv
 ````
 
 ## Inference
-First modify Dataset[data_path]/Resume[resume_path] in `cfg_test/local_32_64_128_loose.yml`;
-Run the following command to reproduce our results of TasselNetV4 on the PAC-105 dataset/PAC-105 Supplymentary dataset:
+First modify *Dataset.data_path* and *Resume.resume_path* in `cfg_test/local_32_64_128_loose.yml`;
+
+Download our model from [Baiduyun (1.05G)](https://pan.baidu.com/s/1B71m2TDmClENOevlTUxC1w?pwd=qdgr) | [Google Drive (1.05G)](https://drive.google.com/file/d/1vrHBv8c1PFJjOX_IXPe0K0oXYNkY7a__/view?usp=drive_link);
+
+Run the following command to reproduce our results of TasselNetV4 on the PAC-105 / PAC-Somalia:
 
 `python test_checkpoint.py`
     
-- Results are saved in the path `./visual`.
+- Results will be saved in the path `./visual`.
   
-## Training
+<!-- ## Training
 First modify path in `cfg_train/local_32_64_128_loose.yml`;
-Download pretrain model from:
-Run the following command to 
+
+Run the following command to train your model
+
 `python train_val.py`
-    
+     -->
