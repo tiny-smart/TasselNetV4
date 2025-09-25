@@ -9,7 +9,7 @@ Official implementation of [TasselNetV4: Towards plant-agnostic counting with a 
 - **TasselNetV4:** an extended version of the TasselNet plant counting models.
 ### Comparison with the state-of-the-art CAC approaches on the PAC-105 dataset. Best performance is in boldface.
 
-| Method                     | Venue & Year     | Shot        | MAE↓  | RMSE↓  | WCA↑ | $R^2$ ↑  | MPE ||↓|| | FPST  |
+| Method                     | Venue & Year     | Shot        | MAE↓  | RMSE↓  | WCA↑ | $R^2$ ↑  | MPE  | FPST  |
 |----------------------------|-----------------|-------|-------|--------|------|------|-------|-------|
 | FamNet (Ranjan et al., 2021)  | CVPR'21         | 3   | 31.70 | 62.58  | 0.49 | 0.56 | 0.24   | 89.65  |
 | BMNet+ (Shi et al., 2022)     | CVPR'22         | 3   | 27.03 | 60.18  | 0.56 | 0.61 | **0.02** | 43.08  |
@@ -30,7 +30,7 @@ Official implementation of [TasselNetV4: Towards plant-agnostic counting with a 
 
 ### Comparison with the state-of-the-art CAC approaches on the PAC-Somalia dataset. Best performance is in boldface.
 
-| Method                     | Venue & Year     | Shot     | MAE↓  | RMSE↓  | WCA↑ | $R^2$ ↑  | MPE ||↓|| |
+| Method                     | Venue & Year     | Shot     | MAE↓  | RMSE↓  | WCA↑ | $R^2$ ↑  | MPE  |
 |----------------------------|-----------------|-------|--------|------|------|------|------|
 | CountTR (Liu et al., 2022)    | BMVC'22         | 3     | 12.71 | 23.87  | 0.38 | 0.57 | **0.27** |
 | CACViT (Wang et al., 2024b)      | AAAI'24      | 3     | 14.00 | 17.00  | 0.55 | 0.78 | 0.80  |
