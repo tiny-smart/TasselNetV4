@@ -1,7 +1,7 @@
 # TasselNetv4
 
 
-Official implementation of [TasselNetV4: Towards plant-agnostic counting with a plain vision transformer and box-aware local counters]
+Official implementation of [TasselNetV4: A vision foundation model for cross-scene, cross-scale, and cross-species plant counting]
 
 ## Highlights
 - **Plant agnostic counting:** a new plant-orientated task customizing Class-agnostic counting into the plant domain and highlighting zero-shot generalization across taxomomic plant species;
@@ -43,17 +43,18 @@ Official implementation of [TasselNetV4: Towards plant-agnostic counting with a 
 ![visualization](/assets/visualization.png "Visualization of baselines and our method")
 
 ## Installation
-See details in 
-`environment.yaml`.
+To setup all the required dependencies for training and evaluation, please follow the instructions below:
 
-Or simply run the following code:
-
-`conda env create -f environment.yaml`
+```bash
+conda env create -f environment.yaml
+conda activate TN4
+```
 
 
 ## Prepare Dataset
 
 **PAC-Somalia**
+
 Download test dataset PAC-Somalia from: [Baiduyun (208M)](https://pan.baidu.com/s/1UH0rihsMe06_5J8AtALTeg?pwd=jssy) | [Google Drive (208M)](https://drive.google.com/file/d/1-haH0eZdpcOK9IMGkw0UafWq_YioHIyn/view?usp=drive_link).The dataset structure should look like this:
 ````
 /PAC_Somalia
@@ -88,3 +89,6 @@ Run the following command to train your model
 
 `python train_val.py`
      -->
+
+## License
+This repository is released under the Apache 2.0 license as found in the [LICENSE](./LICENSE)
