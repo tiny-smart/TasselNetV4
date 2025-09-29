@@ -2,7 +2,8 @@
 
 Official implementation of [TasselNetV4](https://arxiv.org/abs/2509.20857)
 
-Xiaonan Hu
+Xiaonan Hu, Xuebing Li, Jinyu Xu, Abdulkadir Duran Adan, Xuhui Zhu, Yanan Li, Wei Guo, Shouyang Liu, Wenzhong Liu, Hao Lu
+
 
 ## Highlights
 - **Plant agnostic counting:** a new plant-orientated task customizing Class-agnostic counting into the plant domain and highlighting zero-shot generalization across taxomomic plant species;
