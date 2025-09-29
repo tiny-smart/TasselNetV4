@@ -1,7 +1,8 @@
-# TasselNetv4
+# TasselNetV4: A vision foundation model for cross-scene, cross-scale, and cross-species plant counting
 
+Official implementation of [TasselNetV4](https://arxiv.org/abs/2509.20857)
 
-Official implementation of [TasselNetV4: A vision foundation model for cross-scene, cross-scale, and cross-species plant counting]
+Xiaonan Hu
 
 ## Highlights
 - **Plant agnostic counting:** a new plant-orientated task customizing Class-agnostic counting into the plant domain and highlighting zero-shot generalization across taxomomic plant species;
