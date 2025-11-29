@@ -2,7 +2,7 @@ Callback:
   output_dir: /data1/xiaonahu/output/output_32_64_128_loose/
 Dataset:
   batch_size: 32
-  data_path: /home/lixuebing/learning/dataset_no_img/
+  data_path: /home/xiaonanhu/learning/dataset_no_img/
   drop_last: true
   local:
     blocksize:

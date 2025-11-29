@@ -23,25 +23,7 @@ MAX_HW = 384
 MAX_W = 384
 IM_NORM_MEAN = [0.485, 0.456, 0.406]
 IM_NORM_STD = [0.229, 0.224, 0.225]
-# val_category = [
-#     'apricot_flower',
-#     # 'jackfruit',
-#     'lettuce_plant',
-#     'sorghum_head',
-#     'tulip_flower',
-#     'Arvalis_4',
-#     'Arvalis_9',
-#     'baima_wheat_seedling',
-#     'ETHZ_1',
-#     'NAU_2',
-#     'NMBU_1',
-#     'NMBU_2',
-#     'Terraref_1',
-#     'Ukyoto_1',
-#     'ULiege-GxABT_1',
-#     'Usask_1',
-#     'Utokyo_2'
-# ]
+
 class PlantDataset(object):
     def __init__(self, data_path) :
         data_split_file = data_path + 'dataset.csv'
@@ -52,9 +34,6 @@ class PlantDataset(object):
         for i in range(len(data_split_csv)):
             key_split = data_split_csv['split'][i]
             labelpath = data_path+data_split_csv['variety'][i]+'/'+data_split_csv['foldname'][i]+'/labels/'
-            # just for 
-            # if not data_split_csv['foldname'][i] in val_category:
-            #     continue
             imgpath = data_path+data_split_csv['variety'][i]+'/'+data_split_csv['foldname'][i]+'/images/'
             for img in os.listdir(imgpath):
                 value_split = data_split_csv['variety'][i]+'/'+data_split_csv['foldname'][i]+'/images/'+img
@@ -97,15 +76,12 @@ class PlantDataset(object):
         self.data_path = data_path
         self.class_dict = class_dict
 
-        # self.data_split['test'].update(self.data_split['val'])
-        # self.data_split['test'].update(self.data_split['train'])
 
 def getsize(size:torch.tensor):
     # import pdb
     # pdb.set_trace()
     sizemax = size.max()
-    
-    # sy = torch.mean(size, dim=1)
+
     return math.sqrt(sizemax.item() * sizemax.item() * 384 * 384)
 
 
@@ -119,9 +95,7 @@ class PlantDatasetSpecificClass(object):
         for i in range(len(data_split_csv)):
             key_split = data_split_csv['split'][i]
             labelpath = data_path+data_split_csv['variety'][i]+'/'+data_split_csv['foldname'][i]+'/labels/'
-            # just for 
-            # if not data_split_csv['foldname'][i] in val_category:
-            #     continue
+
             imgpath = data_path+data_split_csv['variety'][i]+'/'+data_split_csv['foldname'][i]+'/images/'
             for img in os.listdir(imgpath):
                 value_split = data_split_csv['variety'][i]+'/'+data_split_csv['foldname'][i]+'/images/'+img
@@ -129,7 +103,7 @@ class PlantDatasetSpecificClass(object):
                     data_split[key_split][data_split_csv['foldname'][i]].append(value_split)
                 else:
                     data_split[key_split].update({data_split_csv['foldname'][i]: [value_split]})
-                # data_split[key_split].append(value_split)
+
                 class_dict[value_split]=data_split_csv['variety'][i]+'/'+data_split_csv['foldname'][i]
 
             for file in os.listdir(labelpath):
@@ -169,8 +143,6 @@ class PlantDatasetSpecificClass(object):
         self.class_dict = class_dict
         self.category = list(data_split_csv['variety'])
 
-        # self.data_split['test'].update(self.data_split['val'])
-        # self.data_split['test'].update(self.data_split['train'])
 
 class Train_dataset(Dataset):
     def __init__(self,transform_train,dataset:PlantDataset):
@@ -244,7 +216,6 @@ class Train_dataset(Dataset):
 
         sample = {'image':image,'lines_boxes':rects,'gt_density':density,
                   'dots':dots, 'id':im_id, 'm_flag': m_flag, 'idx': idx}
-        # print(f"idx: {idx}, image size: {image}, examplar size: {examplar_size_list}")
         sample = self.Transform(sample)
         sample['examplar_size'] = examplar_size_list
         return sample

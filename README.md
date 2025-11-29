@@ -2,7 +2,7 @@
 
 Official implementation of [TasselNetV4](https://arxiv.org/abs/2509.20857)
 
-Accepted by [International Society for Photogrammetry and Remote Sensing](https://www.sciencedirect.com/science/article/pii/S0924271625004575)(IF=12.2). Many thanks to all authors and reviewers who contributed to this work!
+Accepted by [International Society for Photogrammetry and Remote Sensing](https://www.sciencedirect.com/science/article/pii/S0924271625004575)(IF=12.2). Many thanks to all authors and reviewers`:smile:`
 
 Xiaonan Hu, Xuebing Li, Jinyu Xu, Abdulkadir Duran Adan, Xuhui Zhu, Yanan Li, Wei Guo, Shouyang Liu, Wenzhong Liu, Hao Lu
 
@@ -11,8 +11,11 @@ Xiaonan Hu, Xuebing Li, Jinyu Xu, Abdulkadir Duran Adan, Xuhui Zhu, Yanan Li, We
 - **Plant agnostic counting:** a new plant-orientated task customizing Class-agnostic counting into the plant domain and highlighting zero-shot generalization across taxomomic plant species;
 - **PAC-105 and PAC-Somalia:** two challenging PAC datasets for training and evaluating daily and out-of-distribution plant species;
 - **TasselNetV4:** an extended version of the TasselNet plant counting models.
-### Comparison with the state-of-the-art CAC approaches on the PAC-105 dataset. Best performance is in boldface.
+
 ![motivation](/assets/motivation.png "plant-specific counting to plant-agnostic counting")
+
+### Comparison with the state-of-the-art CAC approaches on the PAC-105 dataset. Best performance is in boldface.
+
 
 | Method                     | Venue & Year     | Shot        | MAE↓  | RMSE↓  | WCA↑ | $R^2$ ↑  |
 |----------------------------|-----------------|-------|-------|--------|------|------|
@@ -58,11 +61,11 @@ conda activate TN4
 
 ## Prepare Dataset
 
-**PAC-Somalia**
+**PAC-105&PAC-Somalia**
 
-Download test dataset PAC-Somalia from: [Baiduyun (208M)](https://pan.baidu.com/s/1UH0rihsMe06_5J8AtALTeg?pwd=jssy) | [Google Drive (208M)](https://drive.google.com/file/d/1-haH0eZdpcOK9IMGkw0UafWq_YioHIyn/view?usp=drive_link).The dataset structure should look like this:
+Download training dataset PAC-105 from [Baiduyun (2.8G)](https://pan.baidu.com/s/1gB78ekTl-cHbkoIyZMtiYA?pwd=hgxp) | [Google Drive (2.8G)](https://drive.google.com/file/d/1IB6yPXEvXQN3AbAYPjprHb0xsGP0BeHq/view?usp=drive_link) and test dataset PAC-Somalia from: [Baiduyun (208M)](https://pan.baidu.com/s/1UH0rihsMe06_5J8AtALTeg?pwd=jssy) | [Google Drive (208M)](https://drive.google.com/file/d/1-haH0eZdpcOK9IMGkw0UafWq_YioHIyn/view?usp=drive_link).The dataset structure should look like this:
 ````
-/PAC_Somalia
+/dataset
 ├──── aska
     ├──── aska_fruit
         ├──── images
