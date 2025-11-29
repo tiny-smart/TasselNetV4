@@ -2,6 +2,8 @@
 
 Official implementation of [TasselNetV4](https://arxiv.org/abs/2509.20857)
 
+Accepted by [International Society for Photogrammetry and Remote Sensing](https://www.sciencedirect.com/science/article/pii/S0924271625004575)(IF=12.2). Many thanks to all authors and reviewers who contributed to this work!
+
 Xiaonan Hu, Xuebing Li, Jinyu Xu, Abdulkadir Duran Adan, Xuhui Zhu, Yanan Li, Wei Guo, Shouyang Liu, Wenzhong Liu, Hao Lu
 
 
@@ -10,35 +12,36 @@ Xiaonan Hu, Xuebing Li, Jinyu Xu, Abdulkadir Duran Adan, Xuhui Zhu, Yanan Li, We
 - **PAC-105 and PAC-Somalia:** two challenging PAC datasets for training and evaluating daily and out-of-distribution plant species;
 - **TasselNetV4:** an extended version of the TasselNet plant counting models.
 ### Comparison with the state-of-the-art CAC approaches on the PAC-105 dataset. Best performance is in boldface.
+![motivation](/assets/motivation.png "plant-specific counting to plant-agnostic counting")
 
-| Method                     | Venue & Year     | Shot        | MAE↓  | RMSE↓  | WCA↑ | $R^2$ ↑  | MPE \|↓\| | FPS  |
-|----------------------------|-----------------|-------|-------|--------|------|------|-------|-------|
-| FamNet (Ranjan et al., 2021)  | CVPR'21         | 3   | 31.70 | 62.58  | 0.49 | 0.56 | 0.24   | 89.65  |
-| BMNet+ (Shi et al., 2022)     | CVPR'22         | 3   | 27.03 | 60.18  | 0.56 | 0.61 | **0.02** | 43.08  |
-| SPDCNet (Lin et al., 2022)    | BMVC'22         | 3   | 25.21 | 49.98  | 0.58 | 0.92 | 0.21   | 155.84 |
-| SAFECount (You et al., 2023)  | WACV'23         | 3   | 25.59 | 52.09  | 0.58 | 0.91 | 0.04   | 118.55 |
-| CountTR (Liu et al., 2022)    | BMVC'22         | 3   | 25.25 | 49.31  | 0.63 | 0.92 | 0.12   | 112.46 |
-| T-Rex2 (Jiang et al., 2025)   | ECCV'24         | 3   | 26.04 | 49.31  | 0.58 | 0.92 | -0.13  |\      |
-| CACViT (Wang et al., 2024b)   | AAAI'24         | 3   | 19.51 | 29.59  | 0.68 | 0.89 | 0.29   |89.65  |
-| **TasselNetV4 (Ours)**        | This Paper      | 3   | **16.04** | **28.03** | **0.74** | **0.92** |-0.05 | **121.62** |
-| FamNet (Ranjan et al., 2021)  | CVPR'21         | 1   | 35.91±0.966 | 71.78±1.188 | 0.42±0.014 | 0.45±0.024 |0.57±0.017 | \      |
-| BMNet (Shi et al., 2022)      | CVPR'22         | 1   | 28.78±0.324 | 62.12±0.437 | 0.15±0.001 | 0.59±0.008 |0.13±0.006 | \      |
-| CountTR (Liu et al., 2022)    | BMVC'22         | 1   | 28.46±0.226 | 49.84±0.646 | 0.70±0.037 | 0.73±0.006 |0.11±0.003  | \      |
-| CACViT  (Wang et al., 2024b)  | AAAI'24         | 1   | 21.80±0.429 | 38.40±1.526 | 0.64±0.005 | 0.84±0.013 |0.29±0.002  | \      |
-| **TasselNetV4 (Ours)**        | This Paper      | 1   | **18.04±0.339** | **32.04±1.213** | **0.71±0.005** | **0.90±0.009** |**0.02±0.000**| \      |
+| Method                     | Venue & Year     | Shot        | MAE↓  | RMSE↓  | WCA↑ | $R^2$ ↑  |
+|----------------------------|-----------------|-------|-------|--------|------|------|
+| FamNet    | CVPR'21         | 3   | 31.70 | 62.58  | 0.49 | 0.56 |
+| BMNet+    | CVPR'22         | 3   | 27.03 | 60.18  | 0.56 | 0.61 |
+| SPDCNet   | BMVC'22         | 3   | 25.21 | 49.98  | 0.58 | 0.92 | 
+| SAFECount | WACV'23         | 3   | 25.59 | 52.09  | 0.58 | 0.91 | 
+| CountTR   | BMVC'22         | 3   | 25.25 | 49.31  | 0.63 | 0.92 | 
+| T-Rex2    | ECCV'24         | 3   | 26.04 | 49.31  | 0.58 | 0.92 | 
+| CACViT    | AAAI'24         | 3   | 19.51 | 29.59  | 0.68 | 0.89 | 
+| **TasselNetV4 (Ours)**      | ISPRS'25       | 3   | **16.04** | **28.03** | **0.74** | **0.92** |
+| FamNet    | CVPR'21         | 1   | 35.91±0.966 | 71.78±1.188 | 0.42±0.014 | 0.45±0.024 |
+| BMNet     | CVPR'22         | 1   | 28.78±0.324 | 62.12±0.437 | 0.15±0.001 | 0.59±0.008 |
+| CountTR   | BMVC'22         | 1   | 28.46±0.226 | 49.84±0.646 | 0.70±0.037 | 0.73±0.006 |
+| CACViT    | AAAI'24         | 1   | 21.80±0.429 | 38.40±1.526 | 0.64±0.005 | 0.84±0.013 |
+| **TasselNetV4 (Ours)**      | ISPRS'25       | 1   | **18.04±0.339** | **32.04±1.213** | **0.71±0.005** | **0.90±0.009** |
 
 
 
 ### Comparison with the state-of-the-art CAC approaches on the PAC-Somalia dataset. Best performance is in boldface.
 
-| Method                     | Venue & Year     | Shot     | MAE↓  | RMSE↓  | WCA↑ | $R^2$ ↑  | MPE \|↓\|  |
-|----------------------------|-----------------|-------|--------|------|------|------|------|
-| CountTR (Liu et al., 2022)    | BMVC'22         | 3     | 12.71 | 23.87  | 0.38 | 0.57 | **0.27** |
-| CACViT (Wang et al., 2024b)      | AAAI'24      | 3     | 14.00 | 17.00  | 0.55 | 0.78 | 0.80  |
-| **TasselNetV4 (Ours)**        | This Paper      | 3     | **8.88** | **13.11** | **0.72** | **0.87** | 0.32   |
-| CountTR (Liu et al., 2022)    | BMVC'22         | 1     | 12.79±0.076 | 24.20±0.292 | 0.37±0.005 | 0.55±0.012 | **0.23±0.062** |
-| CACViT  (Wang et al., 2024b)  | AAAI'24         | 1     | 14.74±0.138 | 18.23±0.446 | 0.53±0.005 | 0.75±0.012 | 0.80±0.008|
-| **TasselNetV4 (Ours)**        | This Paper      | 1     | **10.98±0.065** | **16.73±0.150** | **0.65±0.000** | **0.80±0.005** | 0.42±0.001 |
+| Method                     | Venue & Year     | Shot     | MAE↓  | RMSE↓  | WCA↑ | $R^2$ ↑  |
+|----------------------------|-----------------|-------|--------|------|------|------|
+| CountTR                   | BMVC'22         | 3     | 12.71 | 23.87  | 0.38 | 0.57 |
+| CACViT                    | AAAI'24      | 3     | 14.00 | 17.00  | 0.55 | 0.78 |
+| **TasselNetV4 (Ours)**    | This Paper      | 3     | **8.88** | **13.11** | **0.72** | **0.87** |
+| CountTR                   | BMVC'22         | 1     | 12.79±0.076 | 24.20±0.292 | 0.37±0.005 | 0.55±0.012 |
+| CACViT                    | AAAI'24         | 1     | 14.74±0.138 | 18.23±0.446 | 0.53±0.005 | 0.75±0.012 |
+| **TasselNetV4 (Ours)**    | ISPRS'25     | 1     | **10.98±0.065** | **16.73±0.150** | **0.65±0.000** | **0.80±0.005** |
 
 
 ## Visualization
