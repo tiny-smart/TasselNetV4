@@ -22,12 +22,11 @@ class SupervisedMAELoose(nn.Module):
 
     def __init__(self, img_size=384, patch_size=16, in_chans=3, 
                  embed_dim=1024, depth=24, num_heads=16,
-                 decoder_embed_dim=512, decoder_depth=8, decoder_num_heads=16,
-                 mlp_ratio=4., norm_layer=nn.LayerNorm, device = 'cuda:0',test = False,
-                 norm_pix_loss=False, drop_path_rate = 0.3,
-                 interaction_indexes = [[0, 2], [3, 5], [6, 8], [9, 11]],with_cffn=True, cffn_ratio=0.25,use_extra_extractor=True,
+                 decoder_embed_dim=512, 
+                 mlp_ratio=4., norm_layer=nn.LayerNorm, test = False,
+                 norm_pix_loss=False, 
                  blocksize_list=[32,64,128], output_stride_list=[16,32,64],
-                 mode = 'GlobalAttention' ,decodemode = 'GlobalAttention', similarityfunc = 'PatchConv',similaritymode = 'OutputAdd',gamma = True, xenhance=False,mullayer = True, updown=None):
+                 mode = 'GlobalAttention' ,decodemode = 'GlobalAttention', similarityfunc = 'PatchConv',similaritymode = 'OutputAdd',gamma = True, mullayer = True, updown=None):
         super().__init__()
         ## Setting the model
         self.mode = mode
@@ -186,7 +185,7 @@ class SupervisedMAELoose(nn.Module):
             for i, blk in enumerate(self.blocks):
                 x_y, attn = blk(x_y)
                 attns.append(attn)
-            x_y = self.norm(x_y)     ## 输出�???? [batch * 288 * 768] 仅仅保存了一�????
+            x_y = self.norm(x_y)     ## 输出�???? [batch * 288 * 768] 仅仅保存了一�????
             x = x_y[:,:l,:]
             for i in range(box_num):
                 y[:,i*n:(i+1)*n,:] = x_y[:,l+i*n:l+(i+1)*n,:]
@@ -318,7 +317,7 @@ class SupervisedMAELoose(nn.Module):
 def local_count_mutihead_loose(**kwargs):
     model = SupervisedMAELoose(
         patch_size=16, embed_dim=768, num_heads=12,
-        decoder_embed_dim=512, decoder_depth=3, decoder_num_heads=16,
+        decoder_embed_dim=512, 
         mlp_ratio=4, norm_layer=partial(nn.LayerNorm, eps=1e-6),**kwargs)
     return model
 
