@@ -17,15 +17,15 @@ Xiaonan Hu, Xuebing Li, Jinyu Xu, Abdulkadir Duran Adan, Xuhui Zhu, Yanan Li, We
 ### Comparison with the state-of-the-art CAC approaches on the PAC-105 dataset. Best performance is in boldface.
 
 
-| Method                     | Venue & Year     | Shot        | MAE↓  | RMSE↓  | WCA↑ | $R^2$ ↑  |
+| Method                     | Venue & Year     | Shot        | MAE↓  | RMSE↓  | WCA↑ | $R^2$ ↑  |  checkpoints  |
 |----------------------------|-----------------|-------|-------|--------|------|------|
-| FamNet([checkpoint](https://pan.baidu.com/s/1QVJcZA2CELPf9aRS5QXDPQ?pwd=bg5y))    | CVPR'21         | 3   | 31.70 | 62.58  | 0.49 | 0.56 |
-| BMNet+([checkpoint](https://pan.baidu.com/s/1cKjICAi4WDShRlheK9b3wA?pwd=qjp9))    | CVPR'22         | 3   | 27.03 | 60.18  | 0.56 | 0.61 |
-| SPDCNet([checkpoint](https://pan.baidu.com/s/1YM9caohZKS5ERk8XBFL5Pw?pwd=xshm))   | BMVC'22         | 3   | 25.21 | 49.98  | 0.58 | 0.92 | 
-| SAFECount([checkpoint](https://pan.baidu.com/s/1Y3KormYsO6hAFEYD3zRFjQ?pwd=swv5)) | WACV'23         | 3   | 25.59 | 52.09  | 0.58 | 0.91 | 
-| CountTR([checkpoint](https://pan.baidu.com/s/1ASJCBc3QK8TR-uItlZcs8A?pwd=94at))   | BMVC'22         | 3   | 25.25 | 49.31  | 0.63 | 0.92 | 
+| FamNet  | CVPR'21         | 3   | 31.70 | 62.58  | 0.49 | 0.56 | [Baiduyun](https://pan.baidu.com/s/1QVJcZA2CELPf9aRS5QXDPQ?pwd=bg5y)
+| BMNet+  | CVPR'22         | 3   | 27.03 | 60.18  | 0.56 | 0.61 | [Baiduyun](https://pan.baidu.com/s/1cKjICAi4WDShRlheK9b3wA?pwd=qjp9)
+| SPDCNet | BMVC'22         | 3   | 25.21 | 49.98  | 0.58 | 0.92 | [Baiduyun](https://pan.baidu.com/s/1YM9caohZKS5ERk8XBFL5Pw?pwd=xshm)
+| SAFECount | WACV'23         | 3   | 25.59 | 52.09  | 0.58 | 0.91 | [Baiduyun](https://pan.baidu.com/s/1Y3KormYsO6hAFEYD3zRFjQ?pwd=swv5)
+| CountTR   | BMVC'22         | 3   | 25.25 | 49.31  | 0.63 | 0.92 | [Baiduyun](https://pan.baidu.com/s/1ASJCBc3QK8TR-uItlZcs8A?pwd=94at)
 | T-Rex2    | ECCV'24         | 3   | 26.04 | 49.31  | 0.58 | 0.92 | 
-| CACViT([checkpoint](https://pan.baidu.com/s/1qpVekxoPaMo30dV1wfXhIA?pwd=s26c))    | AAAI'24         | 3   | 19.51 | 29.59  | 0.68 | 0.89 | 
+| CACViT    | AAAI'24         | 3   | 19.51 | 29.59  | 0.68 | 0.89 | [Baiduyun](https://pan.baidu.com/s/1qpVekxoPaMo30dV1wfXhIA?pwd=s26c)
 | **TasselNetV4 (Ours)**      | ISPRS'25       | 3   | **16.04** | **28.03** | **0.74** | **0.92** |
 | FamNet    | CVPR'21         | 1   | 35.91±0.966 | 71.78±1.188 | 0.42±0.014 | 0.45±0.024 |
 | BMNet     | CVPR'22         | 1   | 28.78±0.324 | 62.12±0.437 | 0.15±0.001 | 0.59±0.008 |
@@ -90,13 +90,12 @@ Run the following command to reproduce our results of TasselNetV4 on the PAC-105
     
 - Results will be saved in the path `./visual`.
   
-<!-- ## Training
+## Training
 First modify path in `cfg_train/local_32_64_128_loose.yml`;
 
 Run the following command to train your model
 
 `python train_val.py`
-     -->
 
 ## License
 This repository is released under the Apache 2.0 license as found in the [LICENSE](./LICENSE).
